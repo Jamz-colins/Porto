@@ -13,14 +13,14 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a1330'/%3E%3Ctext x='16' y='23' font-size='20' font-weight='700' text-anchor='middle' fill='%234d82ff' font-family='sans-serif'%3ES%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Sora:wght@500;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Sora:wght@500;700;800&family=Press+Start+2P&display=swap">
 <link rel="stylesheet" href="css/style.css">
 <script>try{var t=localStorage.getItem('theme');if(!t&&matchMedia('(prefers-color-scheme: light)').matches)t='light';if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 </head>
 <body>
 <a class="skip" href="#main" data-i18n="skip">Lewati ke konten</a>
 <header class="nav" id="nav">
-  <a class="logo" href="#home" aria-label="SIRO">SIRO<span>.</span></a>
+  <a class="logo" href="#home" aria-label="SIRO, ke beranda"><img class="avatar" src="assets/images/profile.jpg" alt="Foto profil Siro" width="42" height="42"><span class="avatar-fb" aria-hidden="true">S</span></a>
   <nav id="menu" aria-label="Navigasi utama">
     <a href="#home" data-i18n="nav.home">Beranda</a>
     <a href="#about" data-i18n="nav.about">Tentang</a>
@@ -36,6 +36,7 @@
 
 <main id="main">
 <section class="hero" id="home">
+  <canvas id="fx" aria-hidden="true"></canvas>
   <div class="wrap hero-grid">
     <div class="hero-txt">
       <p class="meta">PPLG Student · Aspiring Web Developer · Jepara, Jawa Tengah</p>
@@ -91,9 +92,9 @@
     <h2 class="sec-t" data-i18n="skills.title">Keahlian & teknologi</h2>
     <p class="note" data-i18n="skills.note">Tingkat dasar sampai menengah, dipakai di proyek sekolah. Tanpa skor persentase, supaya jujur.</p>
     <div class="skill-grid">
-      <article class="sk big-sk"><h3 data-i18n="skills.web">Web Development</h3><ul class="chips"><li>PHP</li><li>Laravel</li><li>HTML</li><li>CSS</li><li>MySQL</li><li>WordPress (<span data-i18n="skills.basic">dasar</span>)</li></ul></article>
-      <article class="sk"><h3 data-i18n="skills.tools">Tools & Design</h3><ul class="chips"><li>Figma</li><li>Git</li><li>GitHub</li><li>Vite</li><li>Laragon</li><li>VS Code</li></ul></article>
-      <article class="sk learn"><h3 data-i18n="skills.learning">Sedang dipelajari</h3><ul class="chips"><li>WordPress</li><li>Linux & CLI</li><li>CSS</li><li>JavaScript</li></ul></article>
+      <article class="sk big-sk"><h3 data-i18n="skills.web">Web Development</h3><ul class="chips"><li><img class="ti" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/php/php-original.svg" data-n="P" alt="" width="20" height="20" loading="lazy">PHP</li><li><img class="ti" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/laravel/laravel-original.svg" data-n="L" alt="" width="20" height="20" loading="lazy">Laravel</li><li><img class="ti" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/html5/html5-original.svg" data-n="H" alt="" width="20" height="20" loading="lazy">HTML</li><li><img class="ti" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/css3/css3-original.svg" data-n="C" alt="" width="20" height="20" loading="lazy">CSS</li><li><img class="ti" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/mysql/mysql-original.svg" data-n="M" alt="" width="20" height="20" loading="lazy">MySQL</li><li><img class="ti" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/wordpress/wordpress-plain.svg" data-n="W" alt="" width="20" height="20" loading="lazy">WordPress (<span data-i18n="skills.basic">dasar</span>)</li></ul></article>
+      <article class="sk"><h3 data-i18n="skills.tools">Tools & Design</h3><ul class="chips"><li><img class="ti" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/figma/figma-original.svg" data-n="F" alt="" width="20" height="20" loading="lazy">Figma</li><li><img class="ti" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/git/git-original.svg" data-n="G" alt="" width="20" height="20" loading="lazy">Git</li><li><img class="ti inv" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/github/github-original.svg" data-n="G" alt="" width="20" height="20" loading="lazy">GitHub</li><li><img class="ti" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/vitejs/vitejs-original.svg" data-n="V" alt="" width="20" height="20" loading="lazy">Vite</li><li><span class="ti-fb" aria-hidden="true">L</span>Laragon</li><li><img class="ti" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/vscode/vscode-original.svg" data-n="V" alt="" width="20" height="20" loading="lazy">VS Code</li></ul></article>
+      <article class="sk learn"><h3 data-i18n="skills.learning">Sedang dipelajari</h3><ul class="chips"><li><img class="ti" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/wordpress/wordpress-plain.svg" data-n="W" alt="" width="20" height="20" loading="lazy">WordPress</li><li><img class="ti" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/linux/linux-original.svg" data-n="L" alt="" width="20" height="20" loading="lazy">Linux & CLI</li><li><img class="ti" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/css3/css3-original.svg" data-n="C" alt="" width="20" height="20" loading="lazy">CSS</li><li><img class="ti" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/javascript/javascript-original.svg" data-n="J" alt="" width="20" height="20" loading="lazy">JavaScript</li></ul></article>
     </div>
   </div>
 </section>
@@ -118,17 +119,18 @@
           <li data-i18n="proj.c3">Berkontribusi dalam perancangan sistem bersama tim.</li>
         </ul>
         <button class="btn primary" id="open" data-i18n="proj.detail">Lihat Detail</button>
+        <p class="soft" data-i18n="proj.docs">Dokumentasi proyek akan ditambahkan.</p>
       </div>
     </article>
     <h3 class="sub">Proyek desain lainnya</h3>
     <div class="more">
       <article class="card">
         <figure class="ph thumb" data-ph="assets/images/dashboard-game.jpg"><img src="assets/images/dashboard-game.jpg" alt="Desain dashboard game" loading="lazy" width="640" height="400"><figcaption>DESAIN DASHBOARD GAME<small>assets/images/dashboard-game.jpg</small></figcaption></figure>
-        <div class="card-body"><p class="tag">UI Design</p><h3>Desain Dashboard Game</h3><p>Desain antarmuka dashboard untuk platform game bernama GameDasx, dengan tema gelap. Tampilan memuat sidebar ikon, kolom pencarian, banner game unggulan, daftar game yang paling sering dimainkan, aksesori, daftar favorit, teman yang sedang online, dan party.</p>
+        <div class="card-body"><p class="tag">UI Design</p><h3>Desain Dashboard Game</h3><p>Desain antarmuka dashboard untuk platform game bernama GameDasx, dengan tema gelap. Tampilan memuat sidebar ikon, kolom pencarian, banner game unggulan, daftar game yang paling sering dimainkan, aksesori, daftar favorit, teman yang sedang online, dan party.</p><p class="soft">Dokumentasi proyek akan ditambahkan.</p></div>
       </article>
       <article class="card">
         <figure class="ph thumb logo" data-ph="assets/images/logo.png"><img src="assets/images/logo.png" alt="Desain logo" loading="lazy" width="640" height="400"><figcaption>DESAIN LOGO<small>assets/images/logo.png</small></figcaption></figure>
-        <div class="card-body"><p class="tag">Logo Design</p><h3>Desain Logo</h3><p>Desain logo berbentuk geometris dari bidang-bidang miring bersudut tajam dalam dua warna, biru cyan dan abu-abu muda. Bentuk diagonalnya memberi kesan bergerak dan teknologis.</p>
+        <div class="card-body"><p class="tag">Logo Design</p><h3>Desain Logo</h3><p>Desain logo berbentuk geometris dari bidang-bidang miring bersudut tajam dalam dua warna, biru cyan dan abu-abu muda. Bentuk diagonalnya memberi kesan bergerak dan teknologis.</p><p class="soft">Dokumentasi proyek akan ditambahkan.</p></div>
       </article>
     </div>
   </div>
@@ -151,7 +153,7 @@
 <section id="contact" class="sec">
   <div class="wrap two">
     <div>
-      <h2 class="sec-t big2">Let's build something meaningful.</h2>
+      <h2 class="sec-t big2">Mari membangun sesuatu yang bermakna.</h2>
       <p class="lead" data-i18n="ct.lead">Terbuka untuk PKL di bidang web development. Kirim pesan lewat salah satu jalur ini.</p>
       <ul class="links">
         <li><a href="assets/cv/CV-Muhammad-Siro-Jammuniro.pdf" download><span class="lbl" data-i18n="ct.cv">Unduh CV (PDF)</span><span>PDF</span></a></li>
@@ -175,11 +177,10 @@
 <footer class="foot">
   <div class="wrap foot-in">
     <div><strong class="logo">SIRO<span>.</span></strong><p class="soft" data-i18n="ft.txt">Portofolio siswa PPLG SMKN 1 Bangsri.</p></div>
-    <nav aria-label="Footer"><a href="#about" data-i18n="nav.about">Tentang</a><a href="#skills" data-i18n="nav.skills">Keahlian</a><a href="#projects" data-i18n="nav.projects">Proyek</a><a href="#contact" data-i18n="nav.contact">Kontak</a></nav>
-    <nav aria-label="Sosial"><a href="https://github.com/Jamz-colins" target="_blank" rel="noopener">GitHub</a><a href="https://www.instagram.com/mu.si.ja/" target="_blank" rel="noopener">Instagram</a></nav>
     <p class="soft">© <span id="year"></span> Muhammad Siro Jammuniro</p>
   </div>
 </footer>
+<div class="runner-bar" aria-hidden="true"><i id="rbar"></i><svg id="runner" viewBox="0 0 12 14" width="24" height="28" shape-rendering="crispEdges"></svg></div>
 <button class="top" id="top" aria-label="Kembali ke atas" hidden>↑</button>
 
 <dialog id="dlg" aria-labelledby="dt">

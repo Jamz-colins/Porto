@@ -33,6 +33,7 @@ function initNav() {
     const j = document.getElementById('journey'); if (j.getBoundingClientRect().top < innerHeight * .4 && cur === 'projects') cur = 'projects';
     links.forEach(a => { const on = a.getAttribute('href') === '#' + cur; a.classList.toggle('active', on); on ? a.setAttribute('aria-current', 'true') : a.removeAttribute('aria-current'); });
     top.hidden = scrollY < 600;
+    nav.classList.toggle('compact', scrollY > 40);
   };
   addEventListener('scroll', mark, { passive: true }); mark();
   top.addEventListener('click', () => scrollTo({ top: 0 }));
@@ -76,8 +77,58 @@ function initParallax() {
   $('#home').addEventListener('pointermove', e => { art.style.transform = `translate(${(e.clientX / innerWidth - .5) * 14}px,${(e.clientY / innerHeight - .5) * 14}px)`; });
 }
 
+function initIcons() {
+  $$('img.ti').forEach(img => { const fb = () => { const s = document.createElement('span'); s.className = 'ti-fb'; s.setAttribute('aria-hidden', 'true'); s.textContent = img.dataset.n || '•'; img.replaceWith(s); };
+    img.addEventListener('error', fb); if (img.complete && !img.naturalWidth) fb(); });
+}
+function initAvatar() {
+  const logo = $('.logo'), img = $('.avatar'); if (!logo || !img) return;
+  const miss = () => logo.classList.add('nophoto'); img.addEventListener('error', miss); if (img.complete && !img.naturalWidth) miss();
+}
+
+/* ===== pixel / game effects ===== */
+const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function initEmbers() {
+  const cv = $('#fx'), hero = $('#home'); if (!cv || REDUCED) return;
+  const ctx = cv.getContext('2d'), S = 4; let w, h, ps = [], on = true, last = 0, pal = ['#4d82ff', '#7fb0ff', '#2fc3de'];
+  const readPal = () => { const a = getComputedStyle(document.documentElement).getPropertyValue('--acc').trim(); if (a) pal = [a, '#7fb0ff', '#2fc3de']; };
+  const mk = (anywhere) => ({ x: Math.random() * w, y: anywhere ? Math.random() * h : h + 2, vy: .12 + Math.random() * .35, ph: Math.random() * 6.28, sz: Math.random() < .2 ? 2 : 1, c: pal[(Math.random() * pal.length) | 0], a: .4 + Math.random() * .6 });
+  const size = () => { w = Math.ceil(hero.clientWidth / S); h = Math.ceil(hero.clientHeight / S); cv.width = w; cv.height = h;
+    const n = Math.min(70, Math.round(w / 9)); ps = Array.from({ length: n }, () => mk(true)); };
+  const tick = t => { requestAnimationFrame(tick); if (!on || document.hidden || t - last < 50) return; last = t;
+    ctx.clearRect(0, 0, w, h);
+    for (const p of ps) { p.y -= p.vy; p.ph += .06; p.x += Math.sin(p.ph) * .25; if (p.y < -2) Object.assign(p, mk(false));
+      ctx.globalAlpha = Math.random() < .08 ? .2 : p.a * Math.min(1, p.y / (h * .5) + .2); ctx.fillStyle = p.c; ctx.fillRect(p.x | 0, p.y | 0, p.sz, p.sz); } };
+  readPal(); size(); addEventListener('resize', size);
+  new MutationObserver(readPal).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  'IntersectionObserver' in window && new IntersectionObserver(e => { on = e[0].isIntersecting; }).observe(hero);
+  requestAnimationFrame(tick);
+}
+
+function initRunner() {
+  const svg = $('#runner'), bar = $('#rbar'); if (!svg || !bar) return;
+  const head = ['.....f......','....fFf.....','...fFFFf....','...fFFFf....','....fff.....','....bbb.....','...bbbbb....','..bbbbbbb...','..b.bbb.b...','....bbb.....'];
+  const A = ['....b.b.....','...b...b....','..b.....bb..','..bb....bb..'], B = ['....bbb.....','....b.b.....','....b.b.....','...bb.bb....'];
+  const draw = (rows, cls, y0) => `<g class="${cls}">` + rows.map((r, y) => [...r].map((c, x) => c === '.' ? '' : `<rect class="s-${c}" x="${x}" y="${y0 + y}" width="1" height="1"/>`).join('')).join('') + '</g>';
+  svg.innerHTML = draw(head, '', 0) + draw(A, 'fA', 10) + draw(B, 'fB', 10);
+  let t;
+  const upd = () => { const max = document.documentElement.scrollHeight - innerHeight, p = max > 0 ? Math.min(1, scrollY / max) : 0;
+    bar.style.width = p * 100 + '%'; svg.style.left = Math.max(0, p * (innerWidth - 24)) + 'px';
+    if (!REDUCED) { svg.classList.add('run'); clearTimeout(t); t = setTimeout(() => svg.classList.remove('run'), 160); } };
+  addEventListener('scroll', upd, { passive: true }); addEventListener('resize', upd); upd();
+}
+
+function initBurst() {
+  if (REDUCED) return;
+  document.addEventListener('click', e => { if (!e.target.closest('.btn')) return;
+    for (let i = 0; i < 10; i++) { const d = document.createElement('span'); d.className = 'burst'; d.style.left = e.clientX + 'px'; d.style.top = e.clientY + 'px';
+      document.body.appendChild(d); const a = (i / 10) * 6.28 + Math.random(), r = 24 + Math.random() * 28, q = v => Math.round(v / 4) * 4;
+      d.animate([{ transform: 'translate(0,0)', opacity: 1 }, { transform: `translate(${q(Math.cos(a) * r)}px,${q(Math.sin(a) * r)}px)`, opacity: 0 }], { duration: 520, easing: 'steps(5)' }).onfinish = () => d.remove(); } });
+}
+
 function boot() {
-  [initTheme, initNav, initReveal, initPlaceholders, initModal, initForm, initParallax].forEach(fn => { try { fn(); } catch (err) { console.error(fn.name, err); } });
+  [initTheme, initNav, initIcons, initAvatar, initEmbers, initRunner, initBurst, initReveal, initPlaceholders, initModal, initForm, initParallax].forEach(fn => { try { fn(); } catch (err) { console.error(fn.name, err); } });
   const y = $('#year'); if (y) y.textContent = new Date().getFullYear();
 }
 document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', boot) : boot();

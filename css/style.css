@@ -108,3 +108,52 @@ body:has(dialog[open]){overflow:hidden}
 @media(max-width:700px){.more{grid-template-columns:1fr}}
 
 .thumb img{object-position:top}.thumb.logo img{object-fit:contain;padding:1.2rem;background:#fff}
+
+.logo{display:inline-flex;align-items:center;line-height:0}
+.avatar,.avatar-fb{width:42px;height:42px;border-radius:50%;border:2px solid var(--acc);flex:none}
+.avatar{object-fit:cover;background:var(--surf);transition:transform .2s}.logo:hover .avatar{transform:scale(1.06)}
+.avatar-fb{display:grid;place-items:center;background:var(--acc);color:var(--on-acc);font:800 1.15rem var(--f1)}
+.logo.nophoto .avatar{display:none}.logo:not(.nophoto) .avatar-fb{display:none}
+.chips li{display:inline-flex;align-items:center;gap:.5rem}
+.sk .chips li{padding:.45rem .95rem .45rem .7rem}
+.ti{width:20px;height:20px;object-fit:contain;flex:none}
+.ti-fb{width:20px;height:20px;border-radius:5px;background:var(--acc);color:var(--on-acc);font:700 .7rem/20px var(--f1);text-align:center;flex:none}
+[data-theme=dark] .ti.inv{filter:invert(1)}
+
+/* ===== pixel / game layer ===== */
+:root{--px:'Press Start 2P',ui-monospace,'Courier New',monospace}
+.hero{position:relative;isolation:isolate}
+#fx{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;image-rendering:pixelated;opacity:.85}
+main{counter-reset:lv}
+.sec-t::before{content:"LVL " counter(lv,decimal-leading-zero);counter-increment:lv;display:block;font:400 .6rem/1 var(--px);color:var(--acc);margin-bottom:.9rem;letter-spacing:.05em}
+.meta,.tag{font-family:var(--px);font-size:.62rem;line-height:1.6;letter-spacing:.02em;font-weight:400}
+.tag{padding:.35rem .7rem;border-radius:0}
+.btn{border-radius:2px;transition:transform .12s steps(2),box-shadow .12s steps(2)}
+.btn:hover{transform:translate(-3px,-3px);box-shadow:4px 4px 0 var(--acc)}.btn.primary:hover{box-shadow:4px 4px 0 var(--ink)}
+.btn:active{transform:translate(0,0);box-shadow:none}
+.chips li{transition:transform .12s steps(2),border-color .12s steps(2)}
+.card:hover,.sk:hover{box-shadow:5px 5px 0 var(--acc)}.card,.sk{transition:transform .15s steps(3),box-shadow .15s steps(3),border-color .2s}
+.runner-bar{position:fixed;left:0;right:0;bottom:0;height:4px;z-index:45;pointer-events:none;background:var(--line)}
+#rbar{display:block;height:100%;width:0;background:var(--acc)}
+#runner{position:absolute;bottom:4px;left:0;image-rendering:pixelated}
+#runner .s-f{fill:var(--acc)}#runner .s-F{fill:#fff}#runner .s-b{fill:var(--ink)}
+.fA,.fB{animation:fa .3s steps(1) infinite;animation-play-state:paused}.fB{animation-name:fb}
+#runner.run .fA,#runner.run .fB{animation-play-state:running}
+@keyframes fa{0%{opacity:1}50%{opacity:0}}@keyframes fb{0%{opacity:0}50%{opacity:1}}
+.top{bottom:2.2rem}
+.burst{position:fixed;width:6px;height:6px;pointer-events:none;z-index:200;background:var(--acc)}
+@media(prefers-reduced-motion:reduce){#fx{display:none}.fA,.fB{animation:none!important}.fB{opacity:0}}
+
+/* ===== adaptive navbar: full-width at top, compact floating pill after scroll ===== */
+.nav{inset:auto;top:0;left:50%;transform:translateX(-50%);width:100%;padding:.7rem max(1.25rem,calc(50vw - 560px));
+ transition:width .35s cubic-bezier(.2,.8,.2,1),top .35s cubic-bezier(.2,.8,.2,1),padding .35s,border-radius .35s,box-shadow .35s,border-color .35s}
+.nav.compact{top:.6rem;width:min(940px,calc(100% - 1.2rem));padding:.4rem .7rem .4rem .5rem;border:1px solid var(--line);border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.nav.compact .avatar,.nav.compact .avatar-fb{width:36px;height:36px}
+.nav.compact .btn-ico{height:40px;min-width:40px;border-radius:99px}
+@media(max-width:900px){
+ .nav.compact{padding:.35rem .55rem .35rem .45rem}
+ #menu{border-bottom:1px solid var(--line)}
+ .nav.compact #menu{top:calc(100% + .5rem);border:1px solid var(--line);border-radius:22px;box-shadow:0 12px 30px rgba(0,0,0,.25)}
+}
+
+.foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem}
