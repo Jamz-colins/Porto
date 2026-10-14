@@ -3,7 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Muhaad Siro Jammu (Siro) — Portofolio Siswa PPLG & Calon Web Developer</title>
+<title>Muhammad Siro Jammuniro (Siro) — Portofolio Siswa PPLG & Calon Web Developer</title>
+<meta name="theme-color" content="#070d24">
+<meta name="color-scheme" content="light dark">
 <meta name="description" content="Portofolio Muhammad Siro Jammuniro, siswa PPLG SMKN 1 Bangsri dari Jepara yang mencari kesempatan PKL di bidang web development (dasar WordPress, PHP, Laravel, MySQL).">
 <meta property="og:title" content="SIRO — Portofolio PKL Web Development">
 <meta property="og:description" content="Siswa PPLG SMKN 1 Bangsri. Dasar WordPress, PHP, Laravel, MySQL. Mencari PKL.">
@@ -27,8 +29,7 @@
     <a href="#contact" data-i18n="nav.contact">Kontak</a>
   </nav>
   <div class="tools">
-    <button class="btn-ico" id="lang" aria-label="Ganti bahasa / Switch language">ID</button>
-    <button class="btn-ico" id="theme" aria-label="Ganti tema"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+    <button class="btn-ico" id="theme" aria-label="Ganti tema"><svg class="i-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="i-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
     <button class="btn-ico burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
   </div>
 </header>
@@ -45,6 +46,7 @@
       <div class="cta">
         <a class="btn primary" href="#projects" data-i18n="hero.cta1">Jelajahi Proyek</a>
         <a class="btn" href="#contact" data-i18n="hero.cta2">Hubungi Saya</a>
+        <a class="btn cv" href="assets/cv/CV-Muhammad-Siro-Jammuniro.pdf" download data-i18n="hero.cv">Unduh CV</a>
       </div>
     </div>
     <div class="hero-art" aria-hidden="false">
@@ -55,7 +57,7 @@
         <g class="erd-t"><rect x="70" y="232" width="120" height="76" rx="6"/><rect x="70" y="232" width="120" height="26" rx="6" class="hd"/><text x="82" y="250">roles</text><text x="82" y="278" class="r">id · PK</text><text x="82" y="298" class="r">label</text></g>
       </svg>
       <figure class="ph photo" data-ph="assets/images/profile.jpg">
-        <img src="assets/images/profile.jpg" alt="Foto profil Muhaad Siro Jammu" width="200" height="200" loading="eager">
+        <img src="assets/images/profile.jpg" alt="Foto profil Muhammad Siro Jammuniro" width="200" height="200" loading="eager">
         <figcaption>FOTO PROFIL<small>assets/images/profile.jpg</small></figcaption>
       </figure>
       <p class="cap" data-i18n="hero.cap">Ilustrasi dekoratif: relasi antar tabel, hal yang saya pelajari lewat ERD.</p>
@@ -116,9 +118,19 @@
           <li data-i18n="proj.c3">Berkontribusi dalam perancangan sistem bersama tim.</li>
         </ul>
         <button class="btn primary" id="open" data-i18n="proj.detail">Lihat Detail</button>
-        <p class="soft" data-i18n="proj.docs">Dokumentasi proyek akan ditambahkan.</p>
       </div>
     </article>
+    <h3 class="sub">Proyek desain lainnya</h3>
+    <div class="more">
+      <article class="card">
+        <figure class="ph thumb" data-ph="assets/images/dashboard-game.jpg"><img src="assets/images/dashboard-game.jpg" alt="Desain dashboard game" loading="lazy" width="640" height="400"><figcaption>DESAIN DASHBOARD GAME<small>assets/images/dashboard-game.jpg</small></figcaption></figure>
+        <div class="card-body"><p class="tag">UI Design</p><h3>Desain Dashboard Game</h3><p>Desain antarmuka dashboard untuk platform game bernama GameDasx, dengan tema gelap. Tampilan memuat sidebar ikon, kolom pencarian, banner game unggulan, daftar game yang paling sering dimainkan, aksesori, daftar favorit, teman yang sedang online, dan party.</p>
+      </article>
+      <article class="card">
+        <figure class="ph thumb logo" data-ph="assets/images/logo.png"><img src="assets/images/logo.png" alt="Desain logo" loading="lazy" width="640" height="400"><figcaption>DESAIN LOGO<small>assets/images/logo.png</small></figcaption></figure>
+        <div class="card-body"><p class="tag">Logo Design</p><h3>Desain Logo</h3><p>Desain logo berbentuk geometris dari bidang-bidang miring bersudut tajam dalam dua warna, biru cyan dan abu-abu muda. Bentuk diagonalnya memberi kesan bergerak dan teknologis.</p>
+      </article>
+    </div>
   </div>
 </section>
 
@@ -142,6 +154,7 @@
       <h2 class="sec-t big2">Let's build something meaningful.</h2>
       <p class="lead" data-i18n="ct.lead">Terbuka untuk PKL di bidang web development. Kirim pesan lewat salah satu jalur ini.</p>
       <ul class="links">
+        <li><a href="assets/cv/CV-Muhammad-Siro-Jammuniro.pdf" download><span class="lbl" data-i18n="ct.cv">Unduh CV (PDF)</span><span>PDF</span></a></li>
         <li><a href="mailto:jamun8036@gmail.com">Email<span>jamun8036@gmail.com</span></a></li>
         <li><a href="https://wa.me/6283123564452" target="_blank" rel="noopener">WhatsApp<span>0831-2356-4452</span></a></li>
         <li><a href="https://github.com/Jamz-colins" target="_blank" rel="noopener">GitHub<span>Jamz-colins</span></a></li>
@@ -170,15 +183,21 @@
 <button class="top" id="top" aria-label="Kembali ke atas" hidden>↑</button>
 
 <dialog id="dlg" aria-labelledby="dt">
+  <button class="btn-ico close" id="close" type="button" aria-label="Tutup detail"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
   <div class="dlg-in">
-    <button class="btn-ico close" id="close" aria-label="Tutup">✕</button>
     <p class="tag">Team Project · 3 Members</p>
     <h2 id="dt">Website MTs Fadlun Nafis</h2>
     <section><h3 data-i18n="d.1h">1. Nama dan tujuan</h3><p data-i18n="d.1p">Website MTs Fadlun Nafis: website profil dan sistem informasi sekolah.</p></section>
     <section><h3 data-i18n="d.2h">2. Kebutuhan yang ditangani</h3><p data-i18n="d.2p">Sekolah membutuhkan media untuk menampilkan profil dan mengelola informasi. Rincian kebutuhan akan ditambahkan dari dokumentasi tim.</p></section>
     <section><h3 data-i18n="d.3h">3. Gambaran solusi</h3><p data-i18n="d.3p">Sistem berbasis web dengan Laravel dan MySQL, dirancang lebih dulu lewat flowchart, ERD, dan desain di Figma.</p></section>
     <section><h3 data-i18n="d.4h">4. Teknologi</h3><ul class="chips"><li>Figma</li><li>PHP</li><li>Laravel</li><li>MySQL</li></ul></section>
-    <section><h3 data-i18n="d.5h">5. Kontribusi saya</h3><p data-i18n="d.5p">Perancangan alur logika (flowchart) dan struktur basis data (ERD), sebagai bagian dari tim. Saya tidak mengklaim mengerjakan seluruh frontend atau backend.</p></section>
+    <section><h3 data-i18n="d.5h">5. Kontribusi saya</h3><p data-i18n="d.5p">Perancangan alur logika (flowchart) dan struktur basis data (ERD) sebagai bagian dari tim. Rinciannya:</p>
+      <div class="cgrid">
+        <div><h4 data-i18n="c.fh">Flowchart alur sistem</h4><ul><li data-i18n="c.f1">Memetakan alur sistem dari awal sampai akhir, termasuk percabangan keputusan.</li><li data-i18n="c.f2">Menyusun alur dalam langkah yang mudah dibaca anggota tim lain.</li><li data-i18n="c.f3">Menjadikan flowchart acuan saat tim membagi dan memeriksa pekerjaan.</li></ul></div>
+        <div><h4 data-i18n="c.eh">ERD dan skema basis data</h4><ul><li data-i18n="c.e1">Menentukan entitas dan atribut data yang dibutuhkan sistem.</li><li data-i18n="c.e2">Menetapkan primary key, foreign key, dan relasi antar tabel.</li><li data-i18n="c.e3">Menyusun skema yang menjadi acuan struktur tabel di MySQL.</li></ul></div>
+        <div><h4 data-i18n="c.th">Kerja tim</h4><ul><li data-i18n="c.t1">Berkoordinasi dengan dua anggota tim lain agar rancangan sesuai kebutuhan sistem.</li><li data-i18n="c.t2">Menjelaskan rancangan supaya bisa dipakai anggota lain saat implementasi.</li></ul></div>
+      </div>
+      <p class="soft" data-i18n="c.limit">Batas peran: saya tidak mengklaim mengerjakan seluruh implementasi frontend maupun backend.</p></section>
     <section><h3 data-i18n="d.6h">6. Perancangan flowchart</h3><p data-i18n="d.6p">Flowchart memetakan langkah dan percabangan keputusan sistem supaya anggota tim punya acuan yang sama.</p>
       <figure class="ph doc" data-ph="assets/images/flowchart.png"><img src="assets/images/flowchart.png" alt="Flowchart sistem Website MTs Fadlun Nafis" loading="lazy"><figcaption>FLOWCHART<small>assets/images/flowchart.png</small></figcaption></figure></section>
     <section><h3 data-i18n="d.7h">7. ERD dan basis data</h3><p data-i18n="d.7p">ERD menentukan tabel, kunci utama, kunci asing, dan relasi antar data pada skema MySQL.</p>
