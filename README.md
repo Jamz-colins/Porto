@@ -22,7 +22,7 @@ siro@github ~ ❯ fastfetch
       ▄██▀▀▀▀▀▀██▄         ──────────────────────────────────────
      ██▀  ▄▄▄▄  ▀██        Nama      Muhammad Siro Jammuniro (Siro)
      ██   ▀▀▀██  ██        Sekolah   SMKN 1 Bangsri
-     ██▄  ▄▄▄██ ▄██        Jurusan   PPLG · XI PPLG 1
+     ██▄  ▄▄▄██ ▄██        Jurusan   PPLG · XII PPLG 1
       ▀██▄▄▄▄▄▄██▀         Lokasi    Jepara, Jawa Tengah
         ▀▀▀▀▀▀▀▀           Fokus     Web Development
                            Status    Mencari tempat PKL
